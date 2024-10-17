@@ -61,7 +61,7 @@ public class StatsServiceTest {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         long expected = 5;
-        long actual = service.belowAverage(sales);
+        long actual = service.aboveAverage(sales);
 
         Assertions.assertEquals(expected, actual);
     }
