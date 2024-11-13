@@ -11,17 +11,13 @@ public class StatsService {
     }
 
     public long calculateAverage(long[] sales) {
-        long average;
-        long amount = calculateAmount(sales);
-        average = amount / sales.length;
-        return average;
+        return calculateAmount(sales) / sales.length;
     }
 
     public int maxSales(long[] sales) {
         int maxMonth = 0;
-
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] >= sales[maxMonth]) {
+            if (sales[maxMonth] <= sales[i]) {
                 maxMonth = i;
             }
         }
@@ -30,13 +26,12 @@ public class StatsService {
 
     public int minSales(long[] sales) {
         int minMonth = 0;
-
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] <= sales[minMonth]) {
+            if (sales[minMonth] >= sales[i]) {
                 minMonth = i;
             }
         }
-        return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
+        return minMonth + 1;
     }
 
     public int belowAverage(long[] sales) {
